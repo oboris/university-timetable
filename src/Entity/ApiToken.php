@@ -5,6 +5,7 @@ namespace App\Entity;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ApiTokenRepository")
@@ -37,8 +38,8 @@ class ApiToken
     {
         try {
             $this->token = bin2hex($user->getUsername() . random_bytes(60));
-        } catch (\Exception $e) {
-        };
+        } catch (Exception $e) {
+        }
         $this->expiresAt = new DateTime('+3 hour');
         $this->appUser = $user;
         $user->addApiToken($this);
