@@ -1,5 +1,8 @@
 doctrine:
     dbal:
+        driver: 'postgresql'
+        server_version: '11'
+        charset: utf8
         url: '%env(resolve:DATABASE_URL)%'
 
         # IMPORTANT: You MUST configure your server version,
