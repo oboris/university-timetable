@@ -37,6 +37,12 @@ class Group
      */
     private $faculty;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\EducationLevel")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $educationLevel;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +92,18 @@ class Group
     public function setFaculty(?Faculty $faculty): self
     {
         $this->faculty = $faculty;
+
+        return $this;
+    }
+
+    public function getEducationLevel(): ?EducationLevel
+    {
+        return $this->educationLevel;
+    }
+
+    public function setEducationLevel(?EducationLevel $educationLevel): self
+    {
+        $this->educationLevel = $educationLevel;
 
         return $this;
     }
