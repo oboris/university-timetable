@@ -38,10 +38,16 @@ class Faculty
      */
     private $groups;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AppUser", mappedBy="faculty")
+     */
+    private $appUsers;
+
     public function __construct()
     {
         $this->auditoriums = new ArrayCollection();
         $this->groups = new ArrayCollection();
+        $this->appUsers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,6 +135,37 @@ class Faculty
             // set the owning side to null (unless already changed)
             if ($group->getFaculty() === $this) {
                 $group->setFaculty(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AppUser[]
+     */
+    public function getAppUsers(): Collection
+    {
+        return $this->appUsers;
+    }
+
+    public function addAppUser(AppUser $appUser): self
+    {
+        if (!$this->appUsers->contains($appUser)) {
+            $this->appUsers[] = $appUser;
+            $appUser->setFaculty($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAppUser(AppUser $appUser): self
+    {
+        if ($this->appUsers->contains($appUser)) {
+            $this->appUsers->removeElement($appUser);
+            // set the owning side to null (unless already changed)
+            if ($appUser->getFaculty() === $this) {
+                $appUser->setFaculty(null);
             }
         }
 

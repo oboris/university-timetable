@@ -62,6 +62,12 @@ class AppUser implements UserInterface
      */
     private $apiTokens;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Faculty", inversedBy="appUsers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $faculty;
+
     public function __construct()
     {
         $this->apiTokens = new ArrayCollection();
@@ -203,6 +209,18 @@ class AppUser implements UserInterface
                 $apiToken->setAppUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFaculty(): ?Faculty
+    {
+        return $this->faculty;
+    }
+
+    public function setFaculty(?Faculty $faculty): self
+    {
+        $this->faculty = $faculty;
 
         return $this;
     }
