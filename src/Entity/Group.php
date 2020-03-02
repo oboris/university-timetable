@@ -43,6 +43,17 @@ class Group
      */
     private $educationLevel;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Speciality")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $speciality;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $studyDuration;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +115,30 @@ class Group
     public function setEducationLevel(?EducationLevel $educationLevel): self
     {
         $this->educationLevel = $educationLevel;
+
+        return $this;
+    }
+
+    public function getSpeciality(): ?Speciality
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?Speciality $speciality): self
+    {
+        $this->speciality = $speciality;
+
+        return $this;
+    }
+
+    public function getStudyDuration(): ?int
+    {
+        return $this->studyDuration;
+    }
+
+    public function setStudyDuration(int $studyDuration): self
+    {
+        $this->studyDuration = $studyDuration;
 
         return $this;
     }
