@@ -37,6 +37,26 @@ class Subject
      */
     private $speciality;
 
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $lectures;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $seminars;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $laboratories;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $practicals;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +106,54 @@ class Subject
     public function setSpeciality(?Speciality $speciality): self
     {
         $this->speciality = $speciality;
+
+        return $this;
+    }
+
+    public function getLectures(): ?int
+    {
+        return $this->lectures;
+    }
+
+    public function setLectures(?int $lectures): self
+    {
+        $this->lectures = $lectures;
+
+        return $this;
+    }
+
+    public function getSeminars(): ?int
+    {
+        return $this->seminars;
+    }
+
+    public function setSeminars(int $seminars): self
+    {
+        $this->seminars = $seminars;
+
+        return $this;
+    }
+
+    public function getLaboratories(): ?int
+    {
+        return $this->laboratories;
+    }
+
+    public function setLaboratories(int $laboratories): self
+    {
+        $this->laboratories = $laboratories;
+
+        return $this;
+    }
+
+    public function getPracticals(): ?int
+    {
+        return $this->practicals;
+    }
+
+    public function setPracticals(int $practicals): self
+    {
+        $this->practicals = $practicals;
 
         return $this;
     }
