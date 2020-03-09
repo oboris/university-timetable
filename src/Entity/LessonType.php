@@ -26,11 +26,6 @@ class LessonType
      */
     private $shortName;
 
-    /**
-     * @ORM\Column(type="smallint")
-     */
-    private $hours;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -56,18 +51,6 @@ class LessonType
     public function setShortName(string $shortName): self
     {
         $this->shortName = $shortName;
-
-        return $this;
-    }
-
-    public function getHours(): ?int
-    {
-        return $this->hours;
-    }
-
-    public function setHours(int $hours): self
-    {
-        $this->hours = $hours;
 
         return $this;
     }
