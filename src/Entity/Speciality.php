@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Speciality
      * @ORM\JoinColumn(nullable=false)
      */
     private $educationLevel;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Subject", mappedBy="speciality")
+     */
+    private $subjects;
+
+    public function __construct()
+    {
+        $this->subjects = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,37 @@ class Speciality
     public function setEducationLevel(?EducationLevel $educationLevel): self
     {
         $this->educationLevel = $educationLevel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Subject[]
+     */
+    public function getSubjects(): Collection
+    {
+        return $this->subjects;
+    }
+
+    public function addSubject(Subject $subject): self
+    {
+        if (!$this->subjects->contains($subject)) {
+            $this->subjects[] = $subject;
+            $subject->setSpeciality($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubject(Subject $subject): self
+    {
+        if ($this->subjects->contains($subject)) {
+            $this->subjects->removeElement($subject);
+            // set the owning side to null (unless already changed)
+            if ($subject->getSpeciality() === $this) {
+                $subject->setSpeciality(null);
+            }
+        }
 
         return $this;
     }
