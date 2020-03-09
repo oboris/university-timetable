@@ -20,7 +20,7 @@ class TimeTableRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TimteTable[] Returns an array of TimteTable objects
+    //  * @return TimeTable[] Returns an array of TimeTable objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TimeTableRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TimteTable
+    public function findOneBySomeField($value): ?TimeTable
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

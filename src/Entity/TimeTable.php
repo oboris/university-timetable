@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="TimeTableRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TimeTableRepository")
  * @ORM\Table(name="time_table")
  */
 class TimeTable
