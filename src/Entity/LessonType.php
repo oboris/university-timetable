@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LessonTypeRepository")
+ * @ORM\Table(name="lessons_types")
  */
 class LessonType
 {

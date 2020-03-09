@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StreamLessonRepository")
+ * @ORM\Table(name="stream_lessons")
  */
 class StreamLesson
 {

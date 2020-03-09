@@ -5,9 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TimteTableRepository")
+ * @ORM\Entity(repositoryClass="TimeTableRepository")
+ * @ORM\Table(name="time_table")
  */
-class TimteTable
+class TimeTable
 {
     /**
      * @ORM\Id()

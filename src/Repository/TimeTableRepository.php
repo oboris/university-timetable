@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\TimteTable;
+use App\Entity\TimeTable;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method TimteTable|null find($id, $lockMode = null, $lockVersion = null)
- * @method TimteTable|null findOneBy(array $criteria, array $orderBy = null)
- * @method TimteTable[]    findAll()
- * @method TimteTable[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TimeTable|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TimeTable|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TimeTable[]    findAll()
+ * @method TimeTable[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TimteTableRepository extends ServiceEntityRepository
+class TimeTableRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TimteTable::class);
+        parent::__construct($registry, TimeTable::class);
     }
 
     // /**
